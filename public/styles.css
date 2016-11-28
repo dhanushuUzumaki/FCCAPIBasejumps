@@ -1,0 +1,29 @@
+body{
+	background: #3F51B5;
+	color: white;
+	text-align: center;	
+}
+
+
+h1{
+	font-family: 'Bungee', cursive;	
+	font-size: 40px;
+}
+
+h3{
+	font-size: 20px;
+}
+
+p{
+	font-size: 22px;
+	font-family: 'Bungee', cursive;		
+}
+
+p a, p a:visited{
+	text-decoration: none;
+	color: white;
+}
+
+p a:hover{
+	text-decoration: underline;
+}

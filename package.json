@@ -1,0 +1,16 @@
+{
+  "name": "fcc_api_basejumps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dhanushu Uzumaki",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "moment": "^2.17.0"
+  }
+}
