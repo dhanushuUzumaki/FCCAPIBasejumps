@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>TimeStamp Microservice</title>
-	<link href="https://fonts.googleapis.com/css?family=Bungee|Ranga" rel="stylesheet">
+	<script src="https://use.fontawesome.com/c4417c75c6.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Bungee|Inconsolata" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/public/styles.css" />
 </head>
 <body>
@@ -18,6 +19,33 @@
 			<p>If it does, it returns both the Unix timestamp and the natural language form of that date.</p>
 			<p>If it does not contain a date or Unix timestamp, it returns null for those properties.</p>
 		</div>
+		<h3>Usage</h3>
+		<div>
+			<p class="example">
+				https://fcc-api-basejumps.herokuapp.com/api/timestamp/nov-30-1995 <br />
+				https://fcc-api-basejumps.herokuapp.com/api/timestamp/817669800
+			</p>
+		</div>
+		<h3>Response</h3>
+		<div>
+			<p class="example">
+				{"unix":817669800,"natural":"November 30, 1995"}
+			</p>
+		</div>
+		<div class="contact">
+			<a href="https://github.com/dhanushuUzumaki/FCCAPIBasejumps/"><span>
+	  			<i class="fa fa-github"></i>
+			</span></a>
+			<a href="https://www.freecodecamp.com/dhanushuuzumaki"><span>
+	  			<i class="fa fa-free-code-camp"></i>
+			</span></a>
+			<a href="mailto:a.p.dhanushu@gmail.com"><span>
+	  			<i class="fa fa-envelope"></i>
+			</span></a>
+			<a href="/"><span>
+	  			<i class="fa fa-home"></i>
+			</span></a>			
+		</div>		
 	</div>
 </body>
 </html>

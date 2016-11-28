@@ -19,11 +19,22 @@ p{
 	font-family: 'Bungee', cursive;		
 }
 
-p a, p a:visited{
+a, a:visited, a:hover{
 	text-decoration: none;
 	color: white;
 }
 
 p a:hover{
 	text-decoration: underline;
+}
+
+.fa{
+	font-size: 35px;
+	padding: 10px;
+}
+
+.example{
+	font-size: 18px;
+	color: black;
+	font-family: 'Inconsolata', monospace;
 }

@@ -13,4 +13,8 @@ module.exports = function(app) {
 	app.get('/api/timestamp/:dateString', api.timestamp);
 
 	app.get('/api/reqheadparse', api.parseheader);
+
+	app.get('*',function(req,res) {
+		res.sendFile( process.cwd() + '/public/404.html' );
+	});
 };
