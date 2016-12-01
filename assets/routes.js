@@ -14,6 +14,14 @@ module.exports = function(app) {
 
 	app.get('/api/reqheadparse', api.parseheader);
 
+	app.get('/api/urlshortner',function(req, res) {
+		res.sendFile( process.cwd() + '/public/urlshortner.html' );
+	});
+
+	app.post('/api/shortenurl',api.shortenUrl);
+
+	app.get('/api/urlshortner/:shortened', api.unshortenurl);
+
 	app.get('*',function(req,res) {
 		res.sendFile( process.cwd() + '/public/404.html' );
 	});

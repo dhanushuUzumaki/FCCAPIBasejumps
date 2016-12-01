@@ -38,3 +38,16 @@ p a:hover{
 	color: black;
 	font-family: 'Inconsolata', monospace;
 }
+
+.row{
+	padding-top: 5%;
+}
+
+.us{
+	padding-right: 5%;
+	border-right: 2px solid white;
+}
+
+.us p{
+	font-size: 18px;
+}

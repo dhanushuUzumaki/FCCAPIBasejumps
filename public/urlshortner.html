@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Url Shortner</title>
+	<script src="https://use.fontawesome.com/c4417c75c6.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Bungee|Inconsolata" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/public/styles.css" />
+</head>
+<body>
+	<div class="container">
+		<h1>
+			Url Shortner
+		</h1>
+		<h3>By</h3>
+		<h1>Dhanushu Uzumaki</h1>
+		<h3>User Stories</h3>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 us">
+				<p> I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</p>
+				<p>If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</p>
+				<p>When I visit that shortened URL, it will redirect me to my original link.</p>
+			</div>
+			<div class="col-sm-6 col-xs-12">
+				<form name='urlshortner' method="post" action="/api/shortenurl">
+					<div class="form-group">
+						<input type="text" name="url" class="form-control example" placeholder="Enter the url to shorten" required />
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Short it!</button>
+					</div>
+					<div class="form-group">
+    					<div class="input-group">
+      						<div class="input-group-addon">Shortened URL</div>
+      						<input type="url" class="form-control example">
+					    </div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="contact row">
+			<a href="https://github.com/dhanushuUzumaki/FCCAPIBasejumps/"><span>
+	  			<i class="fa fa-github"></i>
+			</span></a>
+			<a href="https://www.freecodecamp.com/dhanushuuzumaki"><span>
+	  			<i class="fa fa-free-code-camp"></i>
+			</span></a>
+			<a href="mailto:a.p.dhanushu@gmail.com"><span>
+	  			<i class="fa fa-envelope"></i>
+			</span></a>
+			<a href="/"><span>
+	  			<i class="fa fa-home"></i>
+			</span></a>			
+		</div>		
+	</div>
+	<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  	$(document).ready(function(){
+  		$("form").submit(function(e){
+            e.preventDefault(e);
+            var btn = document.getElementsByTagName("button")[0];
+			btn.innerHTML = "Shortening";
+            $.ajax({
+            	type: "POST",
+            	url: "/api/shortenurl",
+            	data: $("form").serialize(),
+            	success: function(data) {
+            		btn.innerHTML = "Shortened";
+            		document.getElementsByTagName("input")[1].value = data.shortenedURL;
+            	},
+            	error: function(data) {
+            		btn.innerHTML = "Short it!";
+            		document.getElementsByTagName("input")[1].value = "Invalid URL";
+            	}
+
+            });
+        });
+	});
+  </script>
+</body>
+</html>
