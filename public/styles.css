@@ -33,10 +33,14 @@ p a:hover{
 	padding: 10px;
 }
 
-.example{
+.example, .example-sm{
 	font-size: 18px;
 	color: black;
 	font-family: 'Inconsolata', monospace;
+}
+
+.example-sm{
+	font-size: 17px;
 }
 
 .row{

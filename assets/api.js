@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 var validUrl = require('valid-url');
 var MongoClient = require("mongodb").MongoClient;
 var autoIncrement = require("mongodb-autoincrement");
+var request = require('request-promise');
 require('dotenv').config();
 var mongo_url = process.env.MONGO_URI;
 autoIncrement.setDefaults({
@@ -126,6 +127,69 @@ function API() {
 		});
 	};
 
+	//image search abstractionL layer
+	//using google custom search 
+	this.searchImage = function(req, res) {
+		var qs = req.params.querystring;
+		var startIndex = req.query.offset || 1;
+		var CX = process.env.CX;
+		var apiKey = process.env.GOOG_API_KEY;
+		var reqUrl = 'https://www.googleapis.com/customsearch/v1?q='+qs+
+		'&cx='+CX+'&searchType=image&start='+startIndex+'&key='+apiKey;
+
+		MongoClient.connect(mongo_url,function(err, db) {
+			if(err)
+				throw err;
+			var collection = db.collection('searchResults');
+			var newDoc = {
+				query : qs,
+				time : new Date()
+			};
+			collection.insert(newDoc, function(err, result) {
+				if(err)
+					throw err;
+				console.log("inserted search result..");
+				db.close();
+			});
+		});
+
+		var options = {
+			method : "GET",
+			uri : reqUrl,
+			json : true,
+		};
+
+		request(options).then(function(response) {
+			var images = [];
+			response.items.forEach(function(item) {
+				images.push(item.image);
+			});			
+
+			res.status(200);
+			res.end(JSON.stringify(images,null,2));
+		}).catch(function(err) {
+			console.log(err);
+			res.status(500);
+			res.json({error : "Error try later"});
+		});
+	};
+
+	this.searchHistory = function(req, res) {
+		var history = [];
+		MongoClient.connect(mongo_url, function(err, db) {
+			if(err)
+				throw err;
+			var collection = db.collection('searchResults');
+			collection.find({},{_id : 0}).sort({time : -1}).limit(10).toArray(function(e,result) {
+				if(e)
+					throw e;
+				history = result;
+				res.status(200);
+				res.end(JSON.stringify(history,null,2));
+				db.close();
+			});
+		});
+	};
 
 }
 

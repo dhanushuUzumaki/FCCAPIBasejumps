@@ -22,6 +22,14 @@ module.exports = function(app) {
 
 	app.get('/api/urlshortner/:shortened', api.unshortenurl);
 
+	app.get('/api/searchimage',function(req, res) {
+		res.sendFile( process.cwd() + '/public/searchimage.html' );
+	});
+
+	app.get('/api/searchimage/:querystring',api.searchImage);
+
+	app.get('/api/searchhistory',api.searchHistory);
+
 	app.get('*',function(req,res) {
 		res.sendFile( process.cwd() + '/public/404.html' );
 	});
