@@ -1,4 +1,6 @@
 var API = require( process.cwd() + '/assets/api.js');
+var multer  = require('multer');
+var upload = multer({ dest: process.cwd() + "/uploaded_files/" });
 module.exports = function(app) {
 	var api = new API();
 
@@ -29,6 +31,12 @@ module.exports = function(app) {
 	app.get('/api/searchimage/:querystring',api.searchImage);
 
 	app.get('/api/searchhistory',api.searchHistory);
+
+	app.get('/api/filemeta/',function(req, res) {
+		res.sendFile( process.cwd() + "/public/filemeta.html" );
+	});
+
+	app.post('/api/filemeta/',upload.single('upfile'), api.fileMeta);
 
 	app.get('*',function(req,res) {
 		res.sendFile( process.cwd() + '/public/404.html' );

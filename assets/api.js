@@ -4,6 +4,7 @@ var validUrl = require('valid-url');
 var MongoClient = require("mongodb").MongoClient;
 var autoIncrement = require("mongodb-autoincrement");
 var request = require('request-promise');
+var fs = require('fs');
 require('dotenv').config();
 var mongo_url = process.env.MONGO_URI;
 autoIncrement.setDefaults({
@@ -191,6 +192,15 @@ function API() {
 		});
 	};
 
+	//file meta data microservice
+	this.fileMeta = function(req, res) {
+		res.status(200);
+		res.json({size : req.file.size});
+		fs.unlink(req.file.path, function(err, succ) {
+			if(err)
+				throw err;
+		});
+	};
 }
 
 module.exports = API;

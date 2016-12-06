@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>File MetaData Microservice</title>
+	<link rel="stylesheet" type="text/css" href="/bower_components/font-awesome/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Bungee|Inconsolata" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-fileinput/css/fileinput.min.css">
+	<link rel="stylesheet" type="text/css" href="/public/styles.css" />
+</head>
+<body>
+	<div class="container">
+		<h1>
+			File MetaData Microservice
+		</h1>
+		<h3>By</h3>
+		<h1>Dhanushu Uzumaki</h1>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 us">
+				<h3>User Stories</h3>
+				<p>I can submit a FormData object that includes a file upload.</p>
+				<p>When I submit something, I will receive the file size in bytes within the JSON response</p>
+			</div>
+			<div class="col-sm-6 col-xs-12">
+				<form name='fileupload' method="post" action="/api/filemeta" enctype="multipart/form-data">
+					<input id="input-1a" type="file" class="file" data-show-preview="false" name="upfile">
+				</form>
+			</div>
+		</div>
+		<div class="contact row">
+			<a href="https://github.com/dhanushuUzumaki/FCCAPIBasejumps/"><span>
+	  			<i class="fa fa-github"></i>
+			</span></a>
+			<a href="https://www.freecodecamp.com/dhanushuuzumaki"><span>
+	  			<i class="fa fa-free-code-camp"></i>
+			</span></a>
+			<a href="mailto:a.p.dhanushu@gmail.com"><span>
+	  			<i class="fa fa-envelope"></i>
+			</span></a>
+			<a href="/"><span>
+	  			<i class="fa fa-home"></i>
+			</span></a>			
+		</div>		
+	</div>
+	<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/bower_components/bootstrap-fileinput/js/fileinput.min.js"></script>
+</body>
+</html>

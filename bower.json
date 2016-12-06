@@ -1,0 +1,23 @@
+{
+  "name": "fcc_api_basejumps",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Dhanushu Uzumaki"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/dhanushuUzumaki/FCCAPIBasejumps",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-fileinput": "^4.3.5",
+    "font-awesome": "^4.7.0",
+    "bootstrap": "^3.3.7"
+  }
+}

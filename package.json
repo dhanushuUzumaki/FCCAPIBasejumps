@@ -16,6 +16,7 @@
     "moment": "^2.17.0",
     "mongodb": "^2.2.11",
     "mongodb-autoincrement": "^1.0.1",
+    "multer": "^1.2.0",
     "request": "^2.79.0",
     "request-promise": "^4.1.1",
     "valid-url": "^1.0.9"
